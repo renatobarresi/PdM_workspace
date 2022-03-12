@@ -103,6 +103,16 @@ int main(void)
 	}
 }
 
+void delayInit( delay_t * delay, tick_t duration ){
+	delay->duration = duration;
+}
+bool_t delayRead( delay_t * delay ){
+	return true;
+}
+void delayWrite( delay_t * delay, tick_t duration ){
+
+}
+
 
 /**
  * @brief  System Clock Configuration
