@@ -3645,7 +3645,7 @@ __weak uint32_t HAL_RCC_GetSysClockFreq(void)
 
 080017c4 <EXTI15_10_IRQHandler>:
 
-volatile uint8_t switchState = 1;
+volatile uint8_t switchState = 1; //Guarda el estado actual de la direccion de la secuencia
 
 /* Private functions ---------------------------------------------------------*/
 void EXTI15_10_IRQHandler(void)

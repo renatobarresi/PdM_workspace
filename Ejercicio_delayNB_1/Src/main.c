@@ -73,44 +73,73 @@ int main(void)
 	BSP_LED_Init(LED2);
 	BSP_LED_Init(LED3);
 
-	uint16_t countLED1 = 0;
-	uint16_t countLED2 = 0;
-	uint16_t countLED3 = 0;
+	/*Init led's delay structures, one for each led*/
+	delay_t LED1Delay;
+	delay_t LED2Delay;
+	delay_t LED3Delay;
+
+	/*Init led's delay, one for each led*/
+	delayInit(&LED1Delay, COUNT_LED1);
+	delayInit(&LED2Delay, COUNT_LED2);
+	delayInit(&LED3Delay, COUNT_LED3);
 
 	/* Infinite loop */
 	while (1)
 	{
-		if (countLED1 == COUNT_LED1) {
-			BSP_LED_Toggle(LED1);
-			countLED1 = 0;
-		}
-
-		if (countLED2 >= COUNT_LED2) {
-			BSP_LED_Toggle(LED2);
-			countLED2 = 0;
-		}
-
-		if (COUNT_LED3 == countLED3) {
-			BSP_LED_Toggle(LED3);
-			countLED3 = 0;
-		}
-
-		countLED1++;
-		countLED2++;
-		countLED3++;
-
-		HAL_Delay(1);
+		/*The delay time gets periodically checked for every LED, when the stablished delay time passes, the led toggles*/
+		if(delayRead(&LED1Delay)) BSP_LED_Toggle(LED1);
+		if(delayRead(&LED2Delay)) BSP_LED_Toggle(LED2);
+		if(delayRead(&LED3Delay)) BSP_LED_Toggle(LED3);
 	}
 }
 
-void delayInit( delay_t * delay, tick_t duration ){
-	delay->duration = duration;
-}
-bool_t delayRead( delay_t * delay ){
-	return true;
-}
-void delayWrite( delay_t * delay, tick_t duration ){
+/*
+ * Descp: Initializes the delay_t structure, with a running state, and stores the current time
+ * Params: delay_t * delay: pointer to the delay_t struct
+ * 			tick_t duration: the desired duration time in ms
+ * returns: void
+ *
+*/
 
+void delayInit( delay_t * delay, tick_t duration ){
+	delay -> startTime = HAL_GetTick();
+	delay -> duration = duration;
+	delay -> running = true;
+}
+
+/*
+ * Descp: Checks if the delay time has passed
+ * Params: delay_t * delay: pointer to the delay_t struct
+ * returns: true if the delay has passed, otherwise false
+ *
+*/
+
+bool_t delayRead( delay_t * delay ){
+
+	if(delay -> running == false){
+		delay -> startTime = HAL_GetTick();
+		delay -> running = true;
+	}
+	else{
+		if(HAL_GetTick() - (delay -> startTime) >= delay -> duration){
+			delay -> running = false;	//set running to false, so we can store again the starting time
+			return true;
+		}
+	}
+
+
+	return false;
+}
+
+/*
+ * Descp: Initializes the delay_t structure, with a running state, and stores the current time
+ * Params: delay_t * delay: pointer to the delay_t struct
+ * 			tick_t duration: the desired duration time in ms
+ * returns: void
+ *
+*/
+void delayWrite( delay_t * delay, tick_t duration ){
+	delay -> duration = duration;
 }
 
 

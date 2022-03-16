@@ -1,0 +1,10 @@
+TextOccurrenceHighlighting=false
+currentIPHighlight=false
+eclipse.preferences.version=1
+indexResultIndication=false
+infoIndication=false
+org.eclipse.cdt.ui.occurrenceHighlighting=false
+org.eclipse.cdt.ui.writeOccurrenceHighlighting=false
+secondaryIPHighlight=false
+spellingIndication=false
+warningIndication=false
