@@ -102,6 +102,10 @@ int main(void)
 */
 
 void delayInit( delay_t * delay, tick_t duration ){
+
+	if((int)duration < 0) //checks if duration is valid
+		duration = 50; //set delay to 50 so the user can know there is an invalid parameter
+
 	delay -> startTime = HAL_GetTick();
 	delay -> duration = duration;
 	delay -> running = true;
@@ -127,7 +131,6 @@ bool_t delayRead( delay_t * delay ){
 		}
 	}
 
-
 	return false;
 }
 
@@ -139,6 +142,10 @@ bool_t delayRead( delay_t * delay ){
  *
 */
 void delayWrite( delay_t * delay, tick_t duration ){
+
+	if((int)duration < 0) //checks if duration is valid
+		duration = 50; //set delay to 50 so the user can know there is an invalid parameter
+
 	delay -> duration = duration;
 }
 
