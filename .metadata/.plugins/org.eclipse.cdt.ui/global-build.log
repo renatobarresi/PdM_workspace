@@ -1,24 +1,349 @@
-22:58:53 **** Incremental Build of configuration Debug for project Ejercicio_delayNB_1 ****
+12:28:50 **** Incremental Build of configuration Debug for project Practica3 ****
 make -j12 all 
-arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F429ZITx -DSTM32F4 -DNUCLEO_F429ZI -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Inc -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Ejercicio_delayNB_1/Drivers/STM32F4xx_HAL_Driver/Inc" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Ejercicio_delayNB_1/Drivers/CMSIS/Include" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Ejercicio_delayNB_1/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Ejercicio_delayNB_1/Drivers/BSP/STM32F4xx_Nucleo_144" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Ejercicio_delayNB_1/Drivers/Core/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
-arm-none-eabi-gcc -o "Ejercicio_delayNB_1.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Ejercicio_delayNB_1/STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Ejercicio_delayNB_1.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: Ejercicio_delayNB_1.elf
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F429ZITx -DSTM32F4 -DNUCLEO_F429ZI -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Inc -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/API" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/STM32F4xx_HAL_Driver/Inc" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/CMSIS/Include" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/BSP/STM32F4xx_Nucleo_144" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/Core/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "Practica3.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Practica3.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Practica3.elf
  
-arm-none-eabi-size   Ejercicio_delayNB_1.elf 
-arm-none-eabi-objdump -h -S  Ejercicio_delayNB_1.elf  > "Ejercicio_delayNB_1.list"
-arm-none-eabi-objcopy  -O binary  Ejercicio_delayNB_1.elf  "Ejercicio_delayNB_1.bin"
+arm-none-eabi-size   Practica3.elf 
+arm-none-eabi-objdump -h -S  Practica3.elf  > "Practica3.list"
+arm-none-eabi-objcopy  -O binary  Practica3.elf  "Practica3.bin"
    text	   data	    bss	    dec	    hex	filename
-   6388	     32	   1568	   7988	   1f34	Ejercicio_delayNB_1.elf
+   6540	     32	   1568	   8140	   1fcc	Practica3.elf
 Finished building: default.size.stdout
  
-Finished building: Ejercicio_delayNB_1.bin
+Finished building: Practica3.bin
  
-Finished building: Ejercicio_delayNB_1.list
+Finished building: Practica3.list
  
-22:58:56 **** Incremental Build of configuration Debug for project Ejercicio_delayNB_1 ****
+12:28:52 **** Incremental Build of configuration Debug for project Practica3 ****
 make -j12 all 
-arm-none-eabi-size   Ejercicio_delayNB_1.elf 
+arm-none-eabi-size   Practica3.elf 
    text	   data	    bss	    dec	    hex	filename
-   6388	     32	   1568	   7988	   1f34	Ejercicio_delayNB_1.elf
+   6540	     32	   1568	   8140	   1fcc	Practica3.elf
 Finished building: default.size.stdout
+ 
+12:29:07 **** Incremental Build of configuration Debug for project Practica3 ****
+make -j12 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F429ZITx -DSTM32F4 -DNUCLEO_F429ZI -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Inc -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/API" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/STM32F4xx_HAL_Driver/Inc" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/CMSIS/Include" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/BSP/STM32F4xx_Nucleo_144" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/Core/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "Practica3.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Practica3.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Practica3.elf
+ 
+arm-none-eabi-size   Practica3.elf 
+arm-none-eabi-objdump -h -S  Practica3.elf  > "Practica3.list"
+arm-none-eabi-objcopy  -O binary  Practica3.elf  "Practica3.bin"
+   text	   data	    bss	    dec	    hex	filename
+   6532	     32	   1568	   8132	   1fc4	Practica3.elf
+Finished building: default.size.stdout
+ 
+Finished building: Practica3.bin
+ 
+Finished building: Practica3.list
+ 
+12:29:17 **** Incremental Build of configuration Debug for project Practica3 ****
+make -j12 all 
+arm-none-eabi-size   Practica3.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6532	     32	   1568	   8132	   1fc4	Practica3.elf
+Finished building: default.size.stdout
+ 
+14:33:57 **** Incremental Build of configuration Debug for project Practica3 ****
+make -j12 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F429ZITx -DSTM32F4 -DNUCLEO_F429ZI -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Inc -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/API" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/STM32F4xx_HAL_Driver/Inc" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/CMSIS/Include" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/BSP/STM32F4xx_Nucleo_144" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/Core/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "Practica3.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Practica3.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Practica3.elf
+ 
+arm-none-eabi-size   Practica3.elf 
+arm-none-eabi-objdump -h -S  Practica3.elf  > "Practica3.list"
+arm-none-eabi-objcopy  -O binary  Practica3.elf  "Practica3.bin"
+   text	   data	    bss	    dec	    hex	filename
+   6396	     32	   1568	   7996	   1f3c	Practica3.elf
+Finished building: default.size.stdout
+ 
+Finished building: Practica3.bin
+ 
+Finished building: Practica3.list
+ 
+14:34:12 **** Incremental Build of configuration Debug for project Practica3 ****
+make -j12 all 
+arm-none-eabi-size   Practica3.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6396	     32	   1568	   7996	   1f3c	Practica3.elf
+Finished building: default.size.stdout
+ 
+14:35:13 **** Incremental Build of configuration Debug for project Practica3 ****
+make -j12 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F429ZITx -DSTM32F4 -DNUCLEO_F429ZI -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Inc -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/API" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/STM32F4xx_HAL_Driver/Inc" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/CMSIS/Include" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/BSP/STM32F4xx_Nucleo_144" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/Core/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "Practica3.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Practica3.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Practica3.elf
+ 
+arm-none-eabi-size   Practica3.elf 
+arm-none-eabi-objdump -h -S  Practica3.elf  > "Practica3.list"
+arm-none-eabi-objcopy  -O binary  Practica3.elf  "Practica3.bin"
+   text	   data	    bss	    dec	    hex	filename
+   6392	     32	   1568	   7992	   1f38	Practica3.elf
+Finished building: default.size.stdout
+ 
+Finished building: Practica3.bin
+ 
+Finished building: Practica3.list
+ 
+14:35:21 **** Incremental Build of configuration Debug for project Practica3 ****
+make -j12 all 
+arm-none-eabi-size   Practica3.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6392	     32	   1568	   7992	   1f38	Practica3.elf
+Finished building: default.size.stdout
+ 
+14:35:50 **** Incremental Build of configuration Debug for project Practica3 ****
+make -j12 all 
+arm-none-eabi-size   Practica3.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6392	     32	   1568	   7992	   1f38	Practica3.elf
+Finished building: default.size.stdout
+ 
+14:37:47 **** Incremental Build of configuration Debug for project Practica3 ****
+make -j12 all 
+arm-none-eabi-size   Practica3.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6392	     32	   1568	   7992	   1f38	Practica3.elf
+Finished building: default.size.stdout
+ 
+14:38:29 **** Incremental Build of configuration Debug for project Practica3 ****
+make -j12 all 
+arm-none-eabi-size   Practica3.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6392	     32	   1568	   7992	   1f38	Practica3.elf
+Finished building: default.size.stdout
+ 
+14:39:26 **** Incremental Build of configuration Debug for project Practica3 ****
+make -j12 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F429ZITx -DSTM32F4 -DNUCLEO_F429ZI -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Inc -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/API" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/STM32F4xx_HAL_Driver/Inc" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/CMSIS/Include" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/BSP/STM32F4xx_Nucleo_144" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/Core/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "Practica3.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Practica3.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Practica3.elf
+ 
+arm-none-eabi-size   Practica3.elf 
+arm-none-eabi-objdump -h -S  Practica3.elf  > "Practica3.list"
+arm-none-eabi-objcopy  -O binary  Practica3.elf  "Practica3.bin"
+   text	   data	    bss	    dec	    hex	filename
+   6392	     32	   1568	   7992	   1f38	Practica3.elf
+Finished building: default.size.stdout
+ 
+Finished building: Practica3.bin
+ 
+Finished building: Practica3.list
+ 
+14:41:40 **** Incremental Build of configuration Debug for project Practica3 ****
+make -j12 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F429ZITx -DSTM32F4 -DNUCLEO_F429ZI -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Inc -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/API" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/STM32F4xx_HAL_Driver/Inc" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/CMSIS/Include" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/BSP/STM32F4xx_Nucleo_144" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/Core/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "Practica3.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Practica3.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Practica3.elf
+ 
+arm-none-eabi-size   Practica3.elf 
+arm-none-eabi-objdump -h -S  Practica3.elf  > "Practica3.list"
+arm-none-eabi-objcopy  -O binary  Practica3.elf  "Practica3.bin"
+   text	   data	    bss	    dec	    hex	filename
+   6404	     32	   1568	   8004	   1f44	Practica3.elf
+Finished building: default.size.stdout
+ 
+Finished building: Practica3.bin
+ 
+Finished building: Practica3.list
+ 
+14:51:05 **** Incremental Build of configuration Debug for project Practica3 ****
+make -j12 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F429ZITx -DSTM32F4 -DNUCLEO_F429ZI -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Inc -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/API" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/STM32F4xx_HAL_Driver/Inc" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/CMSIS/Include" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/BSP/STM32F4xx_Nucleo_144" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/Core/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+../Src/main.c: In function 'main':
+../Src/main.c:85:10: warning: unused variable 'timmerLED3Running' [-Wunused-variable]
+   85 |  uint8_t timmerLED3Running = 0;
+      |          ^~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "Practica3.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Practica3.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Practica3.elf
+ 
+arm-none-eabi-size   Practica3.elf 
+arm-none-eabi-objdump -h -S  Practica3.elf  > "Practica3.list"
+arm-none-eabi-objcopy  -O binary  Practica3.elf  "Practica3.bin"
+   text	   data	    bss	    dec	    hex	filename
+   6416	     32	   1568	   8016	   1f50	Practica3.elf
+Finished building: default.size.stdout
+ 
+Finished building: Practica3.bin
+ 
+Finished building: Practica3.list
+ 
+14:51:30 **** Incremental Build of configuration Debug for project Practica3 ****
+make -j12 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F429ZITx -DSTM32F4 -DNUCLEO_F429ZI -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Inc -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/API" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/STM32F4xx_HAL_Driver/Inc" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/CMSIS/Include" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/BSP/STM32F4xx_Nucleo_144" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/Core/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+../Src/main.c: In function 'main':
+../Src/main.c:85:10: warning: unused variable 'timmerLED3Running' [-Wunused-variable]
+   85 |  uint8_t timmerLED3Running = 0;
+      |          ^~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "Practica3.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Practica3.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Practica3.elf
+ 
+arm-none-eabi-size   Practica3.elf 
+arm-none-eabi-objdump -h -S  Practica3.elf  > "Practica3.list"
+arm-none-eabi-objcopy  -O binary  Practica3.elf  "Practica3.bin"
+   text	   data	    bss	    dec	    hex	filename
+   6416	     32	   1568	   8016	   1f50	Practica3.elf
+Finished building: default.size.stdout
+ 
+Finished building: Practica3.bin
+ 
+Finished building: Practica3.list
+ 
+14:52:02 **** Incremental Build of configuration Debug for project Practica3 ****
+make -j12 all 
+arm-none-eabi-size   Practica3.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6416	     32	   1568	   8016	   1f50	Practica3.elf
+Finished building: default.size.stdout
+ 
+14:52:41 **** Incremental Build of configuration Debug for project Practica3 ****
+make -j12 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F429ZITx -DSTM32F4 -DNUCLEO_F429ZI -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Inc -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/API" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/STM32F4xx_HAL_Driver/Inc" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/CMSIS/Include" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/BSP/STM32F4xx_Nucleo_144" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/Core/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+../Src/main.c: In function 'main':
+../Src/main.c:85:10: warning: unused variable 'timmerLED3Running' [-Wunused-variable]
+   85 |  uint8_t timmerLED3Running = 0;
+      |          ^~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "Practica3.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Practica3.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Practica3.elf
+ 
+arm-none-eabi-size   Practica3.elf 
+arm-none-eabi-objdump -h -S  Practica3.elf  > "Practica3.list"
+arm-none-eabi-objcopy  -O binary  Practica3.elf  "Practica3.bin"
+   text	   data	    bss	    dec	    hex	filename
+   6416	     32	   1568	   8016	   1f50	Practica3.elf
+Finished building: default.size.stdout
+ 
+Finished building: Practica3.bin
+ 
+Finished building: Practica3.list
+ 
+14:53:39 **** Incremental Build of configuration Debug for project Practica3 ****
+make -j12 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F429ZITx -DSTM32F4 -DNUCLEO_F429ZI -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Inc -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/API" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/STM32F4xx_HAL_Driver/Inc" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/CMSIS/Include" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/BSP/STM32F4xx_Nucleo_144" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/Core/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+../Src/main.c: In function 'main':
+../Src/main.c:85:10: warning: unused variable 'timmerLED3Running' [-Wunused-variable]
+   85 |  uint8_t timmerLED3Running = 0;
+      |          ^~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "Practica3.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Practica3.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Practica3.elf
+ 
+arm-none-eabi-size   Practica3.elf 
+arm-none-eabi-objdump -h -S  Practica3.elf  > "Practica3.list"
+arm-none-eabi-objcopy  -O binary  Practica3.elf  "Practica3.bin"
+   text	   data	    bss	    dec	    hex	filename
+   6416	     32	   1568	   8016	   1f50	Practica3.elf
+Finished building: default.size.stdout
+ 
+Finished building: Practica3.bin
+ 
+Finished building: Practica3.list
+ 
+14:54:15 **** Incremental Build of configuration Debug for project Practica3 ****
+make -j12 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F429ZITx -DSTM32F4 -DNUCLEO_F429ZI -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Inc -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/API" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/STM32F4xx_HAL_Driver/Inc" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/CMSIS/Include" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/BSP/STM32F4xx_Nucleo_144" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/Core/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+../Src/main.c: In function 'main':
+../Src/main.c:85:10: warning: unused variable 'timmerLED3Running' [-Wunused-variable]
+   85 |  uint8_t timmerLED3Running = 0;
+      |          ^~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "Practica3.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Practica3.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Practica3.elf
+ 
+arm-none-eabi-size   Practica3.elf 
+arm-none-eabi-objdump -h -S  Practica3.elf  > "Practica3.list"
+arm-none-eabi-objcopy  -O binary  Practica3.elf  "Practica3.bin"
+   text	   data	    bss	    dec	    hex	filename
+   6420	     32	   1568	   8020	   1f54	Practica3.elf
+Finished building: default.size.stdout
+ 
+Finished building: Practica3.bin
+ 
+Finished building: Practica3.list
+ 
+14:54:59 **** Incremental Build of configuration Debug for project Practica3 ****
+make -j12 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F429ZITx -DSTM32F4 -DNUCLEO_F429ZI -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Inc -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/API" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/STM32F4xx_HAL_Driver/Inc" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/CMSIS/Include" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/BSP/STM32F4xx_Nucleo_144" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/Core/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+../Src/main.c: In function 'main':
+../Src/main.c:101:6: error: 'led2Blinked' undeclared (first use in this function); did you mean 'led1Blinked'?
+  101 |      led2Blinked =0;
+      |      ^~~~~~~~~~~
+      |      led1Blinked
+../Src/main.c:101:6: note: each undeclared identifier is reported only once for each function it appears in
+../Src/main.c:85:10: warning: unused variable 'timmerLED3Running' [-Wunused-variable]
+   85 |  uint8_t timmerLED3Running = 0;
+      |          ^~~~~~~~~~~~~~~~~
+make: *** [Src/subdir.mk:19: Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+14:55:09 **** Incremental Build of configuration Debug for project Practica3 ****
+make -j12 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F429ZITx -DSTM32F4 -DNUCLEO_F429ZI -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Inc -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/API" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/STM32F4xx_HAL_Driver/Inc" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/CMSIS/Include" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/BSP/STM32F4xx_Nucleo_144" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/Core/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+../Src/main.c: In function 'main':
+../Src/main.c:85:10: warning: unused variable 'timmerLED3Running' [-Wunused-variable]
+   85 |  uint8_t timmerLED3Running = 0;
+      |          ^~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "Practica3.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Practica3.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Practica3.elf
+ 
+arm-none-eabi-size   Practica3.elf 
+arm-none-eabi-objdump -h -S  Practica3.elf  > "Practica3.list"
+arm-none-eabi-objcopy  -O binary  Practica3.elf  "Practica3.bin"
+   text	   data	    bss	    dec	    hex	filename
+   6424	     32	   1568	   8024	   1f58	Practica3.elf
+Finished building: default.size.stdout
+ 
+Finished building: Practica3.bin
+ 
+Finished building: Practica3.list
+ 
+14:56:43 **** Incremental Build of configuration Debug for project Practica3 ****
+make -j12 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F429ZITx -DSTM32F4 -DNUCLEO_F429ZI -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Inc -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/API" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/STM32F4xx_HAL_Driver/Inc" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/CMSIS/Include" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/BSP/STM32F4xx_Nucleo_144" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/Core/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "Practica3.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Practica3.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Practica3.elf
+ 
+arm-none-eabi-size   Practica3.elf 
+arm-none-eabi-objdump -h -S  Practica3.elf  > "Practica3.list"
+arm-none-eabi-objcopy  -O binary  Practica3.elf  "Practica3.bin"
+   text	   data	    bss	    dec	    hex	filename
+   6488	     32	   1568	   8088	   1f98	Practica3.elf
+Finished building: default.size.stdout
+ 
+Finished building: Practica3.bin
+ 
+Finished building: Practica3.list
+ 
+15:03:11 **** Incremental Build of configuration Debug for project Practica3 ****
+make -j12 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F429ZITx -DSTM32F4 -DNUCLEO_F429ZI -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Inc -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/API" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/STM32F4xx_HAL_Driver/Inc" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/CMSIS/Include" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/BSP/STM32F4xx_Nucleo_144" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/Core/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "Practica3.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Practica3.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Practica3.elf
+ 
+arm-none-eabi-size   Practica3.elf 
+arm-none-eabi-objdump -h -S  Practica3.elf  > "Practica3.list"
+arm-none-eabi-objcopy  -O binary  Practica3.elf  "Practica3.bin"
+   text	   data	    bss	    dec	    hex	filename
+   6480	     32	   1568	   8080	   1f90	Practica3.elf
+Finished building: default.size.stdout
+ 
+Finished building: Practica3.bin
+ 
+Finished building: Practica3.list
+ 
+15:06:35 **** Incremental Build of configuration Debug for project Practica3 ****
+make -j12 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F429ZITx -DSTM32F4 -DNUCLEO_F429ZI -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Inc -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/API" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/STM32F4xx_HAL_Driver/Inc" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/CMSIS/Include" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/BSP/STM32F4xx_Nucleo_144" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/Drivers/Core/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "Practica3.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3/STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Practica3.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Practica3.elf
+ 
+arm-none-eabi-size   Practica3.elf 
+arm-none-eabi-objdump -h -S  Practica3.elf  > "Practica3.list"
+arm-none-eabi-objcopy  -O binary  Practica3.elf  "Practica3.bin"
+   text	   data	    bss	    dec	    hex	filename
+   6480	     32	   1568	   8080	   1f90	Practica3.elf
+Finished building: default.size.stdout
+ 
+Finished building: Practica3.bin
+ 
+Finished building: Practica3.list
  
