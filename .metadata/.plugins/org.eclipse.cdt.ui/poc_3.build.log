@@ -1,0 +1,10 @@
+22:23:27 **** Incremental Build of configuration Debug for project poc_3 ****
+make -j12 all 
+arm-none-eabi-size   poc_3.elf 
+   text	   data	    bss	    dec	    hex	filename
+   7256	    136	   1680	   9072	   2370	poc_3.elf
+Finished building: default.size.stdout
+ 
+
+22:23:27 Build Finished. 0 errors, 0 warnings. (took 216ms)
+

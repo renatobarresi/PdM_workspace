@@ -17,6 +17,7 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/Correcciones/Carreño/poc_3"/>
 			<item value="/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica3"/>
 			<item value="/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/Correcciones/Repositorio Jean/PdM_workspace-main/Practica2_Emma"/>
 		</list>
