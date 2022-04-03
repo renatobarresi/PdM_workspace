@@ -1,14 +1,88 @@
-16:12:51 **** Incremental Build of configuration Debug for project Practica_4.1 ****
+14:50:48 **** Incremental Build of configuration Debug for project Practica_5 ****
 make -j12 all 
-arm-none-eabi-size   Practica_4.1.elf 
+arm-none-eabi-gcc "../Drivers/API/ src/API_uart.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F429ZITx -DSTM32F4 -DNUCLEO_F429ZI -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Inc -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica_5/Drivers/API/inc" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica_5/Drivers/API" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica_5/Drivers/STM32F4xx_HAL_Driver/Inc" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica_5/Drivers/CMSIS/Include" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica_5/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica_5/Drivers/BSP/STM32F4xx_Nucleo_144" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica_5/Drivers/Core/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/API/ src/API_uart.d" -MT"Drivers/API/ src/API_uart.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/API/ src/API_uart.o"
+../Drivers/API/ src/API_uart.c: In function 'uartinit':
+../Drivers/API/ src/API_uart.c:22:17: warning: pointer targets in passing argument 1 of 'uartsendString' differ in signedness [-Wpointer-sign]
+   22 |  uartsendString("Hola mundo\r\n");
+      |                 ^~~~~~~~~~~~~~~~
+      |                 |
+      |                 char *
+In file included from ../Drivers/API/ src/API_uart.c:7:
+/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica_5/Drivers/API/inc/API_uart.h:14:31: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+   14 | void uartsendString(uint8_t * pstring);
+      |                     ~~~~~~~~~~^~~~~~~
+arm-none-eabi-gcc -o "Practica_5.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica_5/STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Practica_5.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Practica_5.elf
+ 
+arm-none-eabi-size   Practica_5.elf 
+arm-none-eabi-objdump -h -S  Practica_5.elf  > "Practica_5.list"
+arm-none-eabi-objcopy  -O binary  Practica_5.elf  "Practica_5.bin"
    text	   data	    bss	    dec	    hex	filename
-   6940	     36	   1676	   8652	   21cc	Practica_4.1.elf
+   8992	     36	   1684	  10712	   29d8	Practica_5.elf
 Finished building: default.size.stdout
  
-16:12:55 **** Incremental Build of configuration Debug for project Practica_4.1 ****
+Finished building: Practica_5.bin
+ 
+Finished building: Practica_5.list
+ 
+14:51:23 **** Incremental Build of configuration Debug for project Practica_5 ****
 make -j12 all 
-arm-none-eabi-size   Practica_4.1.elf 
+arm-none-eabi-gcc "../Drivers/API/ src/API_uart.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F429ZITx -DSTM32F4 -DNUCLEO_F429ZI -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Inc -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica_5/Drivers/API/inc" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica_5/Drivers/API" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica_5/Drivers/STM32F4xx_HAL_Driver/Inc" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica_5/Drivers/CMSIS/Include" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica_5/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica_5/Drivers/BSP/STM32F4xx_Nucleo_144" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica_5/Drivers/Core/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/API/ src/API_uart.d" -MT"Drivers/API/ src/API_uart.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/API/ src/API_uart.o"
+../Drivers/API/ src/API_uart.c: In function 'uartinit':
+../Drivers/API/ src/API_uart.c:27:18: warning: pointer targets in passing argument 1 of 'uartsendString' differ in signedness [-Wpointer-sign]
+   27 |   uartsendString("Hola mundo\r\n");
+      |                  ^~~~~~~~~~~~~~~~
+      |                  |
+      |                  char *
+In file included from ../Drivers/API/ src/API_uart.c:7:
+/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica_5/Drivers/API/inc/API_uart.h:14:31: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+   14 | void uartsendString(uint8_t * pstring);
+      |                     ~~~~~~~~~~^~~~~~~
+arm-none-eabi-gcc -o "Practica_5.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica_5/STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Practica_5.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Practica_5.elf
+ 
+arm-none-eabi-size   Practica_5.elf 
+arm-none-eabi-objdump -h -S  Practica_5.elf  > "Practica_5.list"
+arm-none-eabi-objcopy  -O binary  Practica_5.elf  "Practica_5.bin"
    text	   data	    bss	    dec	    hex	filename
-   6940	     36	   1676	   8652	   21cc	Practica_4.1.elf
+   8992	     36	   1684	  10712	   29d8	Practica_5.elf
+Finished building: default.size.stdout
+ 
+Finished building: Practica_5.bin
+ 
+Finished building: Practica_5.list
+ 
+14:51:27 **** Incremental Build of configuration Debug for project Practica_5 ****
+make -j12 all 
+arm-none-eabi-gcc "../Drivers/API/ src/API_uart.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F429ZITx -DSTM32F4 -DNUCLEO_F429ZI -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Inc -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica_5/Drivers/API/inc" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica_5/Drivers/API" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica_5/Drivers/STM32F4xx_HAL_Driver/Inc" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica_5/Drivers/CMSIS/Include" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica_5/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica_5/Drivers/BSP/STM32F4xx_Nucleo_144" -I"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica_5/Drivers/Core/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/API/ src/API_uart.d" -MT"Drivers/API/ src/API_uart.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/API/ src/API_uart.o"
+../Drivers/API/ src/API_uart.c: In function 'uartinit':
+../Drivers/API/ src/API_uart.c:27:18: warning: pointer targets in passing argument 1 of 'uartsendString' differ in signedness [-Wpointer-sign]
+   27 |   uartsendString("Hola mundo\r\n");
+      |                  ^~~~~~~~~~~~~~~~
+      |                  |
+      |                  char *
+In file included from ../Drivers/API/ src/API_uart.c:7:
+/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica_5/Drivers/API/inc/API_uart.h:14:31: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+   14 | void uartsendString(uint8_t * pstring);
+      |                     ~~~~~~~~~~^~~~~~~
+arm-none-eabi-gcc -o "Practica_5.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/renato/Proyectos/CESE_FIUBA/Programacion de microcontroladores/PdM_workspace/Practica_5/STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Practica_5.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Practica_5.elf
+ 
+arm-none-eabi-size   Practica_5.elf 
+arm-none-eabi-objdump -h -S  Practica_5.elf  > "Practica_5.list"
+arm-none-eabi-objcopy  -O binary  Practica_5.elf  "Practica_5.bin"
+   text	   data	    bss	    dec	    hex	filename
+   8992	     36	   1684	  10712	   29d8	Practica_5.elf
+Finished building: default.size.stdout
+ 
+Finished building: Practica_5.bin
+ 
+Finished building: Practica_5.list
+ 
+14:53:23 **** Incremental Build of configuration Debug for project Practica_5 ****
+make -j12 all 
+arm-none-eabi-size   Practica_5.elf 
+   text	   data	    bss	    dec	    hex	filename
+   8992	     36	   1684	  10712	   29d8	Practica_5.elf
 Finished building: default.size.stdout
  

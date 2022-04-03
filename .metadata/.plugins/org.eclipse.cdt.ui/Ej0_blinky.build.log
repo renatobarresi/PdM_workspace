@@ -1,4 +1,4 @@
-12:47:24 **** Incremental Build of configuration Debug for project Ej0_blinky ****
+14:49:58 **** Build of configuration Debug for project Ej0_blinky ****
 make -j12 all 
 arm-none-eabi-size   Ej0_blinky.elf 
    text	   data	    bss	    dec	    hex	filename
@@ -6,5 +6,5 @@ arm-none-eabi-size   Ej0_blinky.elf
 Finished building: default.size.stdout
  
 
-12:47:25 Build Finished. 0 errors, 0 warnings. (took 211ms)
+14:49:58 Build Finished. 0 errors, 0 warnings. (took 403ms)
 
