@@ -6,12 +6,25 @@
  */
 #include "API_uart.h"
 
-UART_HandleTypeDef UartHandle;
+/******************Private handles******************/
+static UART_HandleTypeDef UartHandle;
+
+/*********************Private functions************************/
+static void uartSendStringSize(uint8_t * pstring, uint16_t size);
+
+/*************Public functions*********************/
+
+/**@brief inits USART 3 Peripheral
+ * Baudrate 9600, 8bit words, 1 stop bit, odd parity.
+ * @param none
+ * @retval true if HAL_UART_INIT was successful
+ * @retval false if HAL_UART_INIT had an error
+ */
 
 bool_t uartinit(){
-	UartHandle.Instance        = USART3;
 
-	UartHandle.Init.BaudRate   = 9600;
+	UartHandle.Instance        = UARTx;
+	UartHandle.Init.BaudRate   = BAUDRATE;
 	UartHandle.Init.WordLength = UART_WORDLENGTH_8B;
 	UartHandle.Init.StopBits   = UART_STOPBITS_1;
 	UartHandle.Init.Parity     = UART_PARITY_ODD;
@@ -24,18 +37,37 @@ bool_t uartinit(){
 		/* Initialization Error */
 		return false;
 	}else{
-		uartsendString("Hola mundo\r\n");
+		uartsendString((uint8_t *)"9600, 8Bits, 1Stopbit, impar, noHwrdcntl");
 	}
 	return true;
 }
+/**@brief sends string through USART peripheral
+ * @param pstring: pointer of type uint8_t to string
+ * @retval none
+ */
 void uartsendString(uint8_t * pstring){
-	HAL_UART_Transmit(&UartHandle, pstring, strlen((const char*)pstring), HAL_MAX_DELAY);
+	uartSendStringSize(pstring, strlen((const char*)pstring));
 }
-void uartSendStringSize(uint8_t * pstring, uint16_t size){
 
-}
+/**@brief fills the pstring buffer with the received data
+ * @param pstring pointer of type uint8_t to buffer
+ * @param size variable of type uint16_t of the bytes to receive
+ * @retval none
+ */
 void uartReceiveStringSize(uint8_t * pstring, uint16_t size){
-
+	HAL_UART_Receive(&UartHandle, pstring, size, HAL_MAX_DELAY);
 }
+
+/*********************Private functions************************/
+
+/**@brief sends a number of bytes through the USART peripheral
+ * @param pstring: pointer of type uint8_t to string
+ * @param size: amount of bytes to send
+ * @retval none
+ */
+static void uartSendStringSize(uint8_t * pstring, uint16_t size){
+	HAL_UART_Transmit(&UartHandle, pstring, size, HAL_MAX_DELAY);
+}
+
 
 

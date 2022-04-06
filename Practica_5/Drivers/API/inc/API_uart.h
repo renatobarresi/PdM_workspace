@@ -10,10 +10,13 @@
 
 #include "main.h"
 
+/*********************User defines*****************/
+#define BAUDRATE 9600	//UART peripheral's baudrate
+#define UARTx USART3	//UART peripheral to use
+
+/*************Public functions*********************/
 bool_t uartinit();
 void uartsendString(uint8_t * pstring);
-void uartSendStringSize(uint8_t * pstring, uint16_t size);
 void uartReceiveStringSize(uint8_t * pstring, uint16_t size);
-
 
 #endif /* API_INC_API_UART_H_ */

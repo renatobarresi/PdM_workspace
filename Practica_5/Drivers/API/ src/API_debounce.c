@@ -6,6 +6,7 @@
  */
 
 #include "API_debounce.h"
+#include "API_uart.h"
 
 /*************Private variables*************/
 
@@ -17,6 +18,7 @@ typedef enum{
 } debounceState_t;
 
 static debounceState_t estadoActual; //current machine state
+static debounceState_t estadoPrevio; //past machine state
 
 static bool_t instaKeyStatus; //used to store the value of the button
 
@@ -30,6 +32,7 @@ void debounceFSM_init(){
 	BSP_PB_Init(BUTTON_USER, BUTTON_MODE_GPIO);
 	estadoActual = BUTTON_UP;
 	debounceTime = DEBOUNCE_TIME;
+	estadoPrevio = BUTTON_UP;
 }
 
 /**
@@ -51,7 +54,10 @@ void debounceFSM_update(){
 
 			/*We wait 40ms to be sure the button is not debouncing anymore*/
 			if(delayRead(&debounceDelay)){
+				/*Se indica flanco descendente*/
+				uartsendString((uint8_t *)"HIGH TO LOW");
 				estadoActual = BUTTON_DOWN;
+				estadoPrevio = BUTTON_DOWN;
 			}
 
 			/*If the state is button_down, then we execute button pressed until button gets released*/
@@ -65,6 +71,12 @@ void debounceFSM_update(){
 
 		case GPIO_PIN_RESET:
 			estadoActual = BUTTON_UP;
+
+			if(estadoPrevio == BUTTON_DOWN){
+				estadoPrevio = BUTTON_UP;
+				uartsendString((uint8_t *)"LOW TO HIGH");
+			}
+
 			buttonReleased();
 			break;
 	}
