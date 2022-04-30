@@ -28,6 +28,31 @@ static void Consola_fill_param_msg(){
 	sprintf((char *)stationParamsBuff, (char*)factoryParams, tempNameBuff, TDR315, PiranomDavis, cellular, ethernet, txPeriod);
 }
 
+static void Consola_set_station_params(){
+	uartsendString((uint8_t *)"Indique el nombre de la estacion: ");
+	uartReceiveString(buffer);
+	Station_set_name(buffer);
+	uartsendString((uint8_t *)"\r\nIndique si se cuenta con ethernet: ");
+	uartReceiveString(buffer);
+	Station_set_ethernet(buffer[0]);
+	uartsendString((uint8_t *)"\r\nIndique si se cuenta con modem: ");
+	uartReceiveString(buffer);
+	Station_set_cellular(buffer[0]);
+	uartsendString((uint8_t *)"\r\nIndique el periodo de transmision en minutos: ");
+	uartReceiveString(buffer);
+	Station_set_txPeriod(buffer);
+	uartsendString((uint8_t *)"\r\nIndique si la estacion cuenta con un TDR-315: ");
+	uartReceiveString(buffer);
+	Station_set_TDR315(buffer[0]);
+	uartsendString((uint8_t *)"\r\nIndique si la estacion cuenta con un piranometro Davis: ");
+	uartReceiveString(buffer);
+	Station_set_piranometerDavis(buffer[0]);
+	uartsendString((uint8_t *)"\r\nParametros seteados exitosamente\r\n");
+	HAL_Delay(100);
+	Consola_fill_param_msg();
+	uartsendString(stationParamsBuff);
+}
+
 /******************Public functions*****************/
 /* @brief Obtains the RTC date and time and prints it via serial port
  * @param none
@@ -81,28 +106,7 @@ void Consola_read_CMD(){
 			Consola_updateScreen_RTC();
 		}else if(!strcmp(buffer, "SetStationParams")){
 			/*Sequential parameter setting*/
-			uartsendString((uint8_t *)"Indique el nombre de la estacion: ");
-			uartReceiveString(buffer);
-			Station_set_name(buffer);
-			uartsendString((uint8_t *)"\r\nIndique si se cuenta con ethernet: ");
-			uartReceiveString(buffer);
-			Station_set_ethernet(buffer[0]);
-			uartsendString((uint8_t *)"\r\nIndique si se cuenta con modem: ");
-			uartReceiveString(buffer);
-			Station_set_cellular(buffer[0]);
-			uartsendString((uint8_t *)"\r\nIndique el periodo de transmision en minutos: ");
-			uartReceiveString(buffer);
-			Station_set_txPeriod(buffer);
-			uartsendString((uint8_t *)"\r\nIndique si la estacion cuenta con un TDR-315: ");
-			uartReceiveString(buffer);
-			Station_set_TDR315(buffer[0]);
-			uartsendString((uint8_t *)"\r\nIndique si la estacion cuenta con un piranometro Davis: ");
-			uartReceiveString(buffer);
-			Station_set_piranometerDavis(buffer[0]);
-			uartsendString((uint8_t *)"\r\nParametros seteados exitosamente\r\n");
-			HAL_Delay(100);
-			Consola_fill_param_msg();
-			uartsendString(stationParamsBuff);
+			Consola_set_station_params();
 		}else if(!strcmp(buffer, "PrintParams")){
 			/*Prints the station parameters via serial port*/
 			Consola_fill_param_msg();

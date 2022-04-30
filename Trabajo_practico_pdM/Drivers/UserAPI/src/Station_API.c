@@ -6,9 +6,7 @@
  */
 
 #include "main.h"
-
-/*********Global Variables**********/
-
+#include <assert.h>
 
 /********Private structures***************/
 

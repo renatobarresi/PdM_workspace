@@ -105,7 +105,7 @@ HAL_StatusTypeDef RTC_get_date(RTC_DateTypeDef *sDate){
  */
 HAL_StatusTypeDef RTC_parse_data_set_RTC(uint8_t * pstring){
 	uint8_t hours[4], minutes[4], seconds[4], date[4], month[4], year[4];
-	int hoursINT, minutesINT, secondsINT, dateINT, monthINT, yearINT, weekDayINT;
+	int hoursINT, minutesINT, secondsINT, dateINT, monthINT, yearINT;
 
 	/*TODO: Validate array*/
 

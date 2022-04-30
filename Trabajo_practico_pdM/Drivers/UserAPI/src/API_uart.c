@@ -78,7 +78,9 @@ void uartReceiveString(char * pstring){
 	uint16_t amountOfBytes = 0;
 	for(;;){
 		HAL_UART_Receive(&UartHandle, &tempBuff, 1, HAL_MAX_DELAY);
+		/*We break from infinite loop when \r is detected*/
 		if(tempBuff == '\r'){
+			/*Add \0 to indicate end of string, so we can compare it*/
 			pstring[amountOfBytes++] = '\0';
 			break;
 		}

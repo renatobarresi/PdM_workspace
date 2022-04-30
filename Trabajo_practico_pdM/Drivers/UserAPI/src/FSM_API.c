@@ -16,10 +16,10 @@
 typedef enum{
 	CONSOLE_MODE,
 	IOT_MODE,
-	ADQUISITION_MODE
+	ADQUISITION_MODE,
 } dataLoggerState_t;
 
-static dataLoggerState_t currentState; //current machine state
+dataLoggerState_t currentState; //current machine state
 
 /*************Public variables*************/
 /* @brief inits the respective peripherals
@@ -37,7 +37,7 @@ void FSM_init(){
 	/*Set current Status*/ //TODO: currentState should be stored and read from flash
 	currentState = CONSOLE_MODE;
 }
-/* @brief Checks the stations current state and acts on it
+/* @brief Checks the stations current state and acts depending on it
  * @param none
  * @retval none
  */
