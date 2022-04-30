@@ -1,0 +1,54 @@
+#include <stdio.h>
+#include "Consola_API.h"
+
+uint8_t welcomeMessage[] = "E.M.A.T - Estacion meteorologica Tech Enterprise S.A\r\n";
+uint8_t generalOptions[] = "***Available options***\r\nA)Set the RTC (cmd: SetRtc)\r\nB)Set station parameters (cmd: SetStationParams)\r\nC)Print station parameters (cmd: PrintParams)\r\n";
+uint8_t factoryParams[] = "***Parameters***\r\nName: generic Station\r\nSensors: none\r\nInternet: Cellular\r\n";
+
+/******************Private functions****************/
+HAL_StatusTypeDef Consola_send_data_process(char * pstring){
+	return HAL_OK;
+}
+
+/******************Public functions*****************/
+HAL_StatusTypeDef Consola_updateScreen_RTC(){
+
+
+	/*Obtain current time and store it*/
+	char dateAndTimeStr[100]; // 19:12:53 22/04/2022
+	RTC_TimeTypeDef timeStruct;
+	RTC_DateTypeDef dateStruct;
+
+	RTC_get_time(&timeStruct);
+	RTC_get_date(&dateStruct);
+
+	sprintf(dateAndTimeStr, "%d/%d/%d %d/%d/%d", timeStruct.Hours, timeStruct.Minutes, timeStruct.Seconds, dateStruct.Date, dateStruct.Month, dateStruct.Year);
+
+	/*Send through serial port*/
+	uartsendString((uint8_t *) dateAndTimeStr);
+
+	return HAL_OK;
+
+}
+
+HAL_StatusTypeDef Consola_print_WelcomeMessage(){
+	uartsendString(welcomeMessage);
+	HAL_Delay(100);
+	uartsendString(factoryParams);
+	HAL_Delay(1000);
+	uartsendString(generalOptions);
+	return HAL_OK;
+}
+
+HAL_StatusTypeDef Consola_read_CMD(){
+
+	char buffer[128]; //used to store the bytes comming from the USART
+
+	/*Receive data through USART and store it in buffer*/
+	//uartReceiveStringSize(buffer, )
+	return HAL_OK;
+}
+
+HAL_StatusTypeDef Consola_print_options(){
+	return HAL_OK;
+}

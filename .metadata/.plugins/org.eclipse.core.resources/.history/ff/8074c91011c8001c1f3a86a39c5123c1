@@ -1,0 +1,27 @@
+/*
+ * Station_API.h
+ *
+ *  Created on: Apr 23, 2022
+ *      Author: renato
+ */
+
+#ifndef USERAPI_INC_STATION_API_H_
+#define USERAPI_INC_STATION_API_H_
+
+#include "main.h"
+
+void Station_init();
+void Station_getName(char *pstring);
+uint8_t Station_getEthernet();
+uint8_t Station_getCellular();
+uint16_t Station_getTxperiod();
+uint8_t Station_getTDR_315();
+uint8_t Station_piranometerDavis();
+void Station_set_name(char * pstring);
+void Station_set_ethernet(uint8_t val);
+void Station_set_cellular(uint8_t val);
+void Station_set_txPeriod(uint8_t * val);
+void Station_set_TDR315(uint8_t val);
+void Station_set_piranometerDavis(uint8_t val);
+
+#endif /* USERAPI_INC_STATION_API_H_ */

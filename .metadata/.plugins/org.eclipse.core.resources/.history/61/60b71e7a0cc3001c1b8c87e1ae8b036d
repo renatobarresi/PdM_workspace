@@ -1,0 +1,83 @@
+/*
+ * Station_API.c
+ *
+ *  Created on: Apr 23, 2022
+ *      Author: renato
+ */
+
+#include "main.h"
+
+/*********Global Variables**********/
+
+
+/********Private structures***************/
+/* @brief
+ * @param
+ * @retval
+ */
+typedef struct station{
+	char name[64];
+	uint8_t ethernet;	//Physical ethernet connection
+	uint8_t cellular;	//Physical cellular connection
+	uint16_t txPeriod;	//Transmission period to server
+	uint8_t TDR_315;	//Acclima TDR-315 digital sensor
+	uint8_t piranometerDavis;	//Davis piranometer analog sensor
+}StationParams;
+
+static StationParams thisStation;
+
+/*********Public Functions**************/
+
+void Station_init(){
+	/*Read flash memory, to obtain stored parameters*/
+
+	sprintf(thisStation.name, "Generic Station");
+}
+
+/* @brief
+ * @param
+ * @retval
+ */
+void Station_getName(char *pstring){
+
+}
+
+/* @brief
+ * @param
+ * @retval
+ */
+uint8_t Station_getEthernet(){
+	return thisStation.ethernet;
+}
+
+/* @brief
+ * @param
+ * @retval
+ */
+uint8_t Station_getCellular(){
+	return thisStation.cellular;
+}
+
+/* @brief
+ * @param
+ * @retval
+ */
+uint16_t Station_getTxperiod(){
+	return thisStation.txPeriod;
+}
+
+/* @brief
+ * @param
+ * @retval
+ */
+uint8_t Station_getTDR_315(){
+	return thisStation.TDR_315;
+}
+
+/* @brief
+ * @param
+ * @retval
+ */
+uint8_t Station_piranometerDavis(){
+	return thisStation.piranometerDavis;
+}

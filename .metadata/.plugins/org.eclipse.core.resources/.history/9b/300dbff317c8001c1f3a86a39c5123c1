@@ -1,0 +1,149 @@
+/*
+ * RTC_API.c
+ *
+ *  Created on: Apr 16, 2022
+ *      Author: Renato
+ */
+
+#include "RTC_API.h"
+#include <string.h>
+
+/****************Private handles****************/
+
+static RTC_HandleTypeDef hrtc;
+
+/****************Private Functions*************/
+unsigned int dec2bcd(unsigned int num) // num is now 65535
+{
+    unsigned int ones = 0;
+    unsigned int tens = 0;
+    unsigned int temp = 0;
+
+    ones = num%10; // 65535%10 = 5
+    temp = num/10; // 65535/10 = 6553
+    tens = temp<<4;  // what's displayed is by tens is actually the lower
+                     // 4 bits of tens, so tens is 6553%16=9
+    return (tens + ones);// so the result is 95
+}
+
+
+/****************Public functions****************/
+
+/* @brief
+ * @param
+ * @retval
+ */
+HAL_StatusTypeDef RTC_init(){
+
+	  hrtc.Instance = RTC;
+	  hrtc.Init.HourFormat = RTC_HOURFORMAT_24;
+	  hrtc.Init.AsynchPrediv = 127;
+	  hrtc.Init.SynchPrediv = 255;
+	  hrtc.Init.OutPut = RTC_OUTPUT_DISABLE;
+	  hrtc.Init.OutPutPolarity = RTC_OUTPUT_POLARITY_HIGH;
+	  hrtc.Init.OutPutType = RTC_OUTPUT_TYPE_OPENDRAIN;
+	  if (HAL_RTC_Init(&hrtc) != HAL_OK)
+	  {
+	    return HAL_ERROR;
+	  }
+	  return HAL_OK;
+}
+
+
+/* @brief
+ * @param
+ * @retval
+ */
+HAL_StatusTypeDef RTC_set_time_and_date(uint8_t RTChour, uint8_t RTCminute, uint8_t RTCSeconds, uint8_t RTCWeekDay,
+		uint8_t RTCMonth, uint8_t RTCYear, uint8_t RTCDate){
+
+	  RTC_TimeTypeDef sTime = {0};
+	  RTC_DateTypeDef sDate = {0};
+
+	  sTime.Hours = RTChour;
+	  sTime.Minutes = RTCminute;
+	  sTime.Seconds = RTCSeconds;
+	  sTime.DayLightSaving = RTC_DAYLIGHTSAVING_NONE;
+	  sTime.StoreOperation = RTC_STOREOPERATION_RESET;
+	  if (HAL_RTC_SetTime(&hrtc, &sTime, RTC_FORMAT_BCD) != HAL_OK)
+	  {
+	    return HAL_ERROR;
+	  }
+	  sDate.WeekDay = RTCWeekDay;
+	  sDate.Month = RTCMonth;
+	  sDate.Date = RTCDate;
+	  sDate.Year = RTCYear;
+
+	  if (HAL_RTC_SetDate(&hrtc, &sDate, RTC_FORMAT_BCD) != HAL_OK)
+	  {
+	    return HAL_ERROR;
+	  }
+	  return HAL_OK;
+}
+
+/* @brief
+ * @param
+ * @retval
+ */
+HAL_StatusTypeDef RTC_get_time(RTC_TimeTypeDef *sTime){
+	if(HAL_RTC_GetTime(&hrtc, sTime, RTC_FORMAT_BCD) != HAL_OK) return HAL_ERROR;
+
+	return HAL_OK;
+}
+
+/* @brief
+ * @param
+ * @retval
+ */
+HAL_StatusTypeDef RTC_get_date(RTC_DateTypeDef *sDate){
+	if(HAL_RTC_GetDate(&hrtc, sDate, RTC_FORMAT_BCD) != HAL_OK) return HAL_ERROR;
+
+	return HAL_OK;
+}
+
+HAL_StatusTypeDef RTC_parse_data_set_RTC(uint8_t * pstring){
+	uint8_t hours[4], minutes[4], seconds[4], date[4], month[4], year[4];
+	int hoursINT, minutesINT, secondsINT, dateINT, monthINT, yearINT, weekDayINT;
+
+	/*TODO: Validate array*/
+
+	/*parse time and date from array*/
+	//hh:mm:ss dd/mm/yy
+	hours[0] = *(pstring + 0);
+	hours[1] = *(pstring + 1);
+	minutes[0] = *(pstring + 3);
+	minutes[1] = *(pstring + 4);
+	seconds[0] = *(pstring + 6);
+	seconds[1] = *(pstring +7);
+	date[0] = *(pstring + 9);
+	date[1] = *(pstring + 10);
+	month[0] = *(pstring + 12);
+	month[1] = *(pstring + 13);
+	year[0] = *(pstring + 15);
+	year[1] = *(pstring + 16);
+	//weekDay = *(pstring + 17);
+	/*data to uint8_t*/
+	sscanf((char*)hours, "%d", &hoursINT);
+	sscanf((char*)minutes, "%d", &minutesINT);
+	sscanf((char*)seconds, "%d", &secondsINT);
+	sscanf((char*)date, "%d", &dateINT);
+	sscanf((char*)month, "%d", &monthINT);
+	sscanf((char*)year, "%d", &yearINT);
+	//sscanf(weekDay, "%d", &weekDayINT);
+	//weekDayINT = 4;
+
+	/*Convert to BSD*/
+	hoursINT = dec2bcd(hoursINT);
+	hoursINT = dec2bcd(minutesINT);
+	hoursINT = dec2bcd(secondsINT);
+	hoursINT = dec2bcd(dateINT);
+	hoursINT = dec2bcd(monthINT);
+	hoursINT = dec2bcd(yearINT);
+
+	/*Set time and date*/
+	RTC_set_time_and_date((uint8_t)hoursINT, (uint8_t)minutesINT, (uint8_t)secondsINT,
+			RTC_WEEKDAY_FRIDAY, (uint8_t)monthINT, (uint8_t)yearINT, (uint8_t)dateINT);
+
+	return HAL_OK;
+}
+

@@ -1,0 +1,91 @@
+/*
+ * RTC_API.c
+ *
+ *  Created on: Apr 16, 2022
+ *      Author: Renato
+ */
+
+#include "RTC_API.h"
+
+/****************Private handles****************/
+
+static RTC_HandleTypeDef hrtc;
+
+
+/****************Public functions****************/
+
+/* @brief
+ * @param
+ * @retval
+ */
+HAL_StatusTypeDef RTC_init(){
+
+	  hrtc.Instance = RTC;
+	  hrtc.Init.HourFormat = RTC_HOURFORMAT_24;
+	  hrtc.Init.AsynchPrediv = 127;
+	  hrtc.Init.SynchPrediv = 255;
+	  hrtc.Init.OutPut = RTC_OUTPUT_DISABLE;
+	  hrtc.Init.OutPutPolarity = RTC_OUTPUT_POLARITY_HIGH;
+	  hrtc.Init.OutPutType = RTC_OUTPUT_TYPE_OPENDRAIN;
+	  if (HAL_RTC_Init(&hrtc) != HAL_OK)
+	  {
+	    return HAL_ERROR;
+	  }
+
+	  RTC_set_time_and_date(0x19,0x48,0x30,0x6,0x4,0x22,0x22);
+
+	  return HAL_OK;
+}
+
+
+/* @brief
+ * @param
+ * @retval
+ */
+HAL_StatusTypeDef RTC_set_time_and_date(uint8_t RTChour, uint8_t RTCminute, uint8_t RTCSeconds, uint8_t RTCWeekDay,
+		uint8_t RTCMonth, uint8_t RTCYear, uint8_t RTCDate){
+
+	  RTC_TimeTypeDef sTime = {0};
+	  RTC_DateTypeDef sDate = {0};
+
+	  sTime.Hours = RTChour;
+	  sTime.Minutes = RTCminute;
+	  sTime.Seconds = RTCSeconds;
+	  sTime.DayLightSaving = RTC_DAYLIGHTSAVING_NONE;
+	  sTime.StoreOperation = RTC_STOREOPERATION_RESET;
+	  if (HAL_RTC_SetTime(&hrtc, &sTime, RTC_FORMAT_BCD) != HAL_OK)
+	  {
+	    return HAL_ERROR;
+	  }
+	  sDate.WeekDay = RTCWeekDay;
+	  sDate.Month = RTCMonth;
+	  sDate.Date = RTCDate;
+	  sDate.Year = RTCYear;
+
+	  if (HAL_RTC_SetDate(&hrtc, &sDate, RTC_FORMAT_BCD) != HAL_OK)
+	  {
+	    return HAL_ERROR;
+	  }
+	  return HAL_OK;
+}
+
+/* @brief
+ * @param
+ * @retval
+ */
+HAL_StatusTypeDef RTC_get_time(RTC_TimeTypeDef *sTime){
+	if(HAL_RTC_GetTime(&hrtc, sTime, RTC_FORMAT_BCD) != HAL_OK) return HAL_ERROR;
+
+	return HAL_OK;
+}
+
+/* @brief
+ * @param
+ * @retval
+ */
+HAL_StatusTypeDef RTC_get_date(RTC_DateTypeDef *sDate){
+	if(HAL_RTC_GetDate(&hrtc, sDate, RTC_FORMAT_BCD) != HAL_OK) return HAL_ERROR;
+
+	return HAL_OK;
+}
+

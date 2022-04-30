@@ -1,7 +1,7 @@
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/arch=x86_64
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/name=Local
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/os=linux
-configDescList=org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Ej2_uart (1),org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Ej2_uart,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Practica_4.1 Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Ejercicio_delayNB_1 Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Practica3 Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Practica4.1 Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Practica_4.2,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Practica_5
+configDescList=org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Ej2_uart (1),org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Ej2_uart,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Practica_4.1 Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Ejercicio_delayNB_1 Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Practica3 Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Practica4.1 Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Practica_4.2 (1),org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Practica_4.2,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Practica_5,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Trabajo_practico_pdM
 eclipse.preferences.version=1
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Ej0_blinky\ Debug/activeLaunchMode=debug
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Ej0_blinky/activeLaunchMode=run
@@ -20,6 +20,8 @@ org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Ejercicio_delayNB_1\ Debug/acti
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Practica2_Emma/activeLaunchMode=debug
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Practica3\ Debug/activeLaunchMode=run
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Practica4.1\ Debug/activeLaunchMode=run
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Practica_4.2\ (1)/activeLaunchMode=debug
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Practica_4.2/activeLaunchMode=run
-org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Practica_5/activeLaunchMode=run
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Practica_5/activeLaunchMode=debug
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Trabajo_practico_pdM/activeLaunchMode=debug
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:poc_3/activeLaunchMode=debug

@@ -1,0 +1,113 @@
+/*
+ * Station_API.c
+ *
+ *  Created on: Apr 23, 2022
+ *      Author: renato
+ */
+
+#include "main.h"
+
+/*********Global Variables**********/
+
+
+/********Private structures***************/
+
+/* @brief This structure defines the station parameters
+ */
+typedef struct station{
+	char name[64];
+	uint8_t ethernet;	///Physical ethernet connection
+	uint8_t cellular;	///Physical cellular connection
+	uint16_t txPeriod;	///Transmission period to server in minutes
+	uint8_t TDR_315;	///Acclima TDR-315 digital sensor
+	uint8_t piranometerDavis;	///Davis piranometer analog sensor
+}StationParams;
+
+static StationParams thisStation;
+
+/*********Public Functions**************/
+
+/* @brief Init "thisStation" structure to the parameters stored in flash memory
+ * @param none
+ * @retval none
+ */
+
+void Station_init(){
+	/*TODO: Read flash memory, to obtain stored parameters*/
+
+	/*Placeholder values, they should be the ones stored in flash*/
+	sprintf(thisStation.name, "Generic Station");
+	thisStation.ethernet = 1;
+	thisStation.cellular = 0;
+	thisStation.txPeriod = 10;
+	thisStation.TDR_315 = 0;
+	thisStation.piranometerDavis = 0;
+
+}
+
+/* @brief Used to get the station's name
+ * @param none
+ * @retval the station's name
+ */
+void Station_getName(char *pstring){
+	sprintf(pstring, thisStation.name);
+}
+
+/* @brief Lets User application know if ethernet should be used
+ * @param none
+ * @retval 1 if there is an ethernet PHY, 0 if not
+ */
+uint8_t Station_getEthernet(){
+	return thisStation.ethernet;
+}
+
+/* @brief Lets User application know if cellular should be used
+ * @param none
+ * @retval 1 if there is a cellular modem connected, 0 if not
+ */
+uint8_t Station_getCellular(){
+	return thisStation.cellular;
+}
+
+/* @brief Lets User application know the transmission period
+ * @param none
+ * @retval the station's transmission period
+ */
+uint16_t Station_getTxperiod(){
+	return thisStation.txPeriod;
+}
+
+/* @brief Lets User application know if there is a TDR-315 connected to the station
+ * @param none
+ * @retval 1 if a TDR-315 is connected to the station, 0 if not
+ */
+uint8_t Station_getTDR_315(){
+	return thisStation.TDR_315;
+}
+
+/* @brief Lets User application know if there is davis piranometer connected to the station
+ * @param none
+ * @retval 1 if a piranometer is connected to the station, 0 if not
+ */
+uint8_t Station_piranometerDavis(){
+	return thisStation.piranometerDavis;
+}
+
+void Station_set_name(char * pstring){
+	sprintf(thisStation.name, "%s", pstring);
+}
+void Station_set_ethernet(uint8_t val){
+	thisStation.ethernet = val - '0';
+}
+void Station_set_cellular(uint8_t val){
+	thisStation.cellular = val - '0';
+}
+void Station_set_txPeriod(uint16_t val){
+	thisStation.txPeriod = val - '0';
+}
+void Station_set_TDR315(uint8_t val){
+	thisStation.TDR_315 = val - '0';
+}
+void Station_set_piranometerDavis(uint8_t val){
+	thisStation.piranometerDavis = val - '0';
+}

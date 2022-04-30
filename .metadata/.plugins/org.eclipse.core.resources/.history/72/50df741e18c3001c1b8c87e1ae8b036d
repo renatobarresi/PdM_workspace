@@ -1,0 +1,23 @@
+/*
+ * Station_API.h
+ *
+ *  Created on: Apr 23, 2022
+ *      Author: renato
+ */
+
+#ifndef USERAPI_INC_STATION_API_H_
+#define USERAPI_INC_STATION_API_H_
+
+#include "main.h"
+
+#define STATION_GENERIC_NAME "Generic Station"
+
+void Station_init();
+void Station_getName(char *pstring);
+uint8_t Station_getEthernet();
+uint8_t Station_getCellular();
+uint16_t Station_getTxperiod();
+uint8_t Station_getTDR_315();
+uint8_t Station_piranometerDavis();
+
+#endif /* USERAPI_INC_STATION_API_H_ */

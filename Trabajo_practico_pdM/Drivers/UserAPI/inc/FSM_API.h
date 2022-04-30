@@ -1,0 +1,16 @@
+/*
+ * FSM_API.h
+ *
+ *  Created on: Apr 27, 2022
+ *      Author: renato
+ */
+
+#ifndef USERAPI_INC_FSM_API_H_
+#define USERAPI_INC_FSM_API_H_
+
+#include "main.h"
+
+void FSM_init();
+void FSM_update();
+
+#endif /* USERAPI_INC_FSM_API_H_ */

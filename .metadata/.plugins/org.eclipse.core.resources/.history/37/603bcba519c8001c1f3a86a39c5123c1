@@ -1,0 +1,130 @@
+#include <stdio.h>
+#include <string.h>
+#include "Consola_API.h"
+#include "Station_API.h"
+
+uint8_t welcomeMessage[] = "E.M.A.T - Estacion meteorologica Tech Enterprise S.A\r\n";
+uint8_t generalOptions[] = "***Available options***\r\nA)Set the RTC (cmd: SetRTC)\r\nB)Set station parameters (cmd: SetStationParams)\r\nC)Print station parameters (cmd: PrintParams)\r\nD)Print station time (cmd: PrintTime)\r\n";
+uint8_t factoryParams[] = "***Parameters***\r\nName: %s\r\nSensors-> TDR-315: %d Davis Piranometer: %d\r\nNetwork connection-> Cellular: %d Ethernet: %d\r\nTransmission Period: %d\r\n";
+
+char buffer[UART_RX_BUFFER] = ""; //used to store the bytes comming from the USART
+
+/******************Private variables****************/
+static uint8_t stationParamsBuff[128]; //Stores the data loggers parameters and gets sent via serial port
+
+/******************Private functions****************/
+/* @brief
+ * @param
+ * @retval
+ */
+static void Consola_fill_param_msg(){
+	char tempNameBuff[128];
+	uint8_t TDR315 = Station_getTDR_315();
+	uint8_t PiranomDavis = Station_piranometerDavis();
+	uint8_t ethernet = Station_getEthernet();
+	uint8_t cellular = Station_getCellular();
+	uint16_t txPeriod = Station_getTxperiod();
+	Station_getName(tempNameBuff);
+	sprintf((char *)stationParamsBuff, (char*)factoryParams, tempNameBuff, TDR315, PiranomDavis, cellular, ethernet, txPeriod);
+}
+
+/******************Public functions*****************/
+/* @brief
+ * @param
+ * @retval
+ */
+HAL_StatusTypeDef Consola_updateScreen_RTC(){
+
+
+	/*Obtain current time and store it*/
+	char dateAndTimeStr[100]; // 19:12:53 22/04/2022
+	RTC_TimeTypeDef timeStruct;
+	RTC_DateTypeDef dateStruct;
+
+	RTC_get_time(&timeStruct);
+	RTC_get_date(&dateStruct);
+	//uartsendString(timeStruct.Hours);
+	sprintf(dateAndTimeStr, "%d/%d/%d %d/%d/%d\r\n", timeStruct.Hours, timeStruct.Minutes, timeStruct.Seconds, dateStruct.Date, dateStruct.Month, dateStruct.Year);
+
+	/*Send through serial port*/
+	uartsendString((uint8_t *) dateAndTimeStr);
+
+	return HAL_OK;
+
+}
+/* @brief
+ * @param
+ * @retval
+ */
+HAL_StatusTypeDef Consola_print_WelcomeMessage(){
+	uartsendString(welcomeMessage);
+	HAL_Delay(100);
+	Consola_fill_param_msg();
+	uartsendString(stationParamsBuff);
+	HAL_Delay(1000);
+	uartsendString(generalOptions);
+	return HAL_OK;
+}
+/* @brief
+ * @param
+ * @retval
+ */
+HAL_StatusTypeDef Consola_read_CMD(){
+
+	/*Receive data through USART and store it in buffer*/
+	uartReceiveString(buffer);
+
+	/*Check if command was received*/
+	if (strcmp(buffer, "") != 0){
+		/*Check if the command is valid, and act accordingly*/
+		if(!strcmp(buffer, "SetRTC")){
+			uartsendString((uint8_t *)"Set the time and date hh:mm:ss dd/mm/yy wd\r\n");
+			uartReceiveString(buffer);
+			RTC_parse_data_set_RTC((uint8_t*)buffer);
+			uartsendString((uint8_t *)"Time and date updated: ");
+			Consola_updateScreen_RTC();
+		}else if(!strcmp(buffer, "SetStationParams")){
+			uartsendString((uint8_t *)"Indique el nombre de la estacion: ");
+			uartReceiveString(buffer);
+			Station_set_name(buffer);
+			uartsendString((uint8_t *)"\r\nIndique si se cuenta con ethernet: ");
+			uartReceiveString(buffer);
+			Station_set_ethernet(buffer[0]);
+			uartsendString((uint8_t *)"\r\nIndique si se cuenta con modem: ");
+			uartReceiveString(buffer);
+			Station_set_cellular(buffer[0]);
+			uartsendString((uint8_t *)"\r\nIndique el periodo de transmision en minutos: ");
+			uartReceiveString(buffer);
+			Station_set_txPeriod(buffer);
+			uartsendString((uint8_t *)"\r\nIndique si la estacion cuenta con un TDR-315: ");
+			uartReceiveString(buffer);
+			Station_set_TDR315(buffer[0]);
+			uartsendString((uint8_t *)"\r\nIndique si la estacion cuenta con un piranometro Davis: ");
+			uartReceiveString(buffer);
+			Station_set_piranometerDavis(buffer[0]);
+			uartsendString((uint8_t *)"\r\nParametros seteados exitosamente\r\n");
+			HAL_Delay(100);
+			Consola_fill_param_msg();
+			uartsendString(stationParamsBuff);
+		}else if(!strcmp(buffer, "PrintParams")){
+			Consola_fill_param_msg();
+			uartsendString(stationParamsBuff);
+		}else if(!strcmp(buffer, "PrintTime")){
+			Consola_updateScreen_RTC();
+		}else{
+			uartsendString((uint8_t *)"Comando invalido, ingrese de vuelta\r\n");
+		}
+		/*Empty the string*/
+		strcpy(buffer, "");
+	}
+
+	return HAL_OK;
+}
+/* @brief
+ * @param
+ * @retval
+ */
+HAL_StatusTypeDef Consola_print_options(){
+	uartsendString(generalOptions);
+	return HAL_OK;
+}

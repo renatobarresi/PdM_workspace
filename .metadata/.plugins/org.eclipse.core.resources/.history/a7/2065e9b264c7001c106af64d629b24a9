@@ -1,0 +1,85 @@
+/*
+ * API_uart.c
+ *
+ *  Created on: Apr 2, 2022
+ *      Author: renato
+ */
+#include "API_uart.h"
+
+/******************Private handles******************/
+
+static UART_HandleTypeDef UartHandle;
+
+/*********************Private functions************************/
+
+/**@brief sends a number of bytes through the USART peripheral
+ * @param pstring: pointer of type uint8_t to string
+ * @param size: amount of bytes to send
+ * @retval none
+ */
+void uartSendStringSize(uint8_t * pstring, uint16_t size){
+	HAL_UART_Transmit(&UartHandle, pstring, size, HAL_MAX_DELAY);
+}
+
+
+
+/**@brief fills the pstring buffer with the received data
+ * @param pstring pointer of type uint8_t to buffer
+ * @param size variable of type uint16_t of the bytes to receive
+ * @retval none
+ */
+void uartReceiveStringSize(uint8_t * pstring, uint16_t size, uint32_t timeout){
+
+}
+
+
+/*************Public functions*********************/
+
+/**@brief inits USART 3 Peripheral
+ * Baudrate BAUDRATE, 8bit words, 1 stop bit, no parity.
+ * @param none
+ * @retval true if HAL_UART_INIT was successful
+ * @retval false if HAL_UART_INIT had an error
+ */
+
+HAL_StatusTypeDef uartinit(){
+
+	UartHandle.Instance        = UARTx;
+	UartHandle.Init.BaudRate   = BAUDRATE;
+	UartHandle.Init.WordLength = UART_WORDLENGTH_8B;
+	UartHandle.Init.StopBits   = UART_STOPBITS_1;
+	UartHandle.Init.Parity     = UART_PARITY_NONE;
+	UartHandle.Init.HwFlowCtl  = UART_HWCONTROL_NONE;
+	UartHandle.Init.Mode       = UART_MODE_TX_RX;
+	UartHandle.Init.OverSampling = UART_OVERSAMPLING_16;
+
+	if (HAL_UART_Init(&UartHandle) != HAL_OK)
+	{
+		/* Initialization Error */
+		return HAL_ERROR;
+	}
+	return HAL_OK;
+}
+/**@brief sends string through USART peripheral
+ * @param pstring: pointer of type uint8_t to string
+ * @retval none
+ */
+void uartsendString(uint8_t * pstring){
+	uartSendStringSize(pstring, strlen((const char*)pstring));
+}
+
+void uartReceiveString(uint8_t * pstring){
+	uint8_t tempBuff;
+	uint16_t amoutOfBytes = 0;
+	for(;;){
+		HAL_UART_Receive(&UartHandle, &tempBuff, 1, HAL_MAX_DELAY);
+		if(tempBuff == '\r'){
+			pstring[amountOfBytes++] = '\0';
+			break;
+		}
+		else{
+			pstring[amoutOfBytes++] = tempBuff;
+		}
+	}
+}
+

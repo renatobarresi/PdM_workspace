@@ -1,0 +1,50 @@
+/*
+ * FSM_API.c
+ *
+ *  Created on: Apr 27, 2022
+ *      Author: renato
+ */
+
+#include "FSM_API.h"
+#include "RTC_API.h"
+#include "Consola_API.h"
+#include "API_uart.h"
+#include "Station_API.h"
+
+/*************Private variables*************/
+
+typedef enum{
+	CONSOLE_MODE,
+	IOT_MODE,
+	ADQUISITION_MODE,
+} dataLoggerState_t;
+
+static dataLoggerState_t currentState; //current machine state
+
+/*************Public variables*************/
+
+void FSM_init(){
+
+	/*Init peripherals*/
+	RTC_init();
+	uartinit();
+	Station_init();
+	/*HMI messages*/
+	Consola_print_WelcomeMessage();
+	/*Set current Status*/ //TODO: currentState should be stored and read from flash
+	currentState = CONSOLE_MODE;
+}
+
+void FSM_update(){
+	switch(currentState){
+		case CONSOLE_MODE:
+			Consola_read_CMD();
+			break;
+		case IOT_MODE:
+			break;
+		case ADQUISITION_MODE:
+			break;
+		default:
+			break;
+	}
+}

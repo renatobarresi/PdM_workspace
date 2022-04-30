@@ -1,0 +1,20 @@
+/*
+ * Consola_API.h
+ *
+ *  Created on: Apr 22, 2022
+ *      Author: renato
+ */
+
+#ifndef USERAPI_INC_CONSOLA_API_H_
+#define USERAPI_INC_CONSOLA_API_H_
+
+#include "main.h"
+#include "API_uart.h"
+
+HAL_StatusTypeDef Consola_updateScreen_RTC();
+HAL_StatusTypeDef Consola_print_WelcomeMessage();
+HAL_StatusTypeDef Consola_read_CMD(); //parse cmd comming from serial console
+HAL_StatusTypeDef Consola_send_data_process(); //Sends pasred cmd to specific process
+HAL_StatusTypeDef Consola_print_options();
+
+#endif /* USERAPI_INC_CONSOLA_API_H_ */

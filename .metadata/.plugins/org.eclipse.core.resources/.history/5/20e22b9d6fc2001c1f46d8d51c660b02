@@ -1,0 +1,21 @@
+/*
+ * RTC_API.h
+ *
+ *  Created on: Apr 16, 2022
+ *      Author: Renato
+ */
+
+#ifndef INC_RTC_API_H_
+#define INC_RTC_API_H_
+
+#include "main.h"
+
+//#define HAL_RTC_MODULE_ENABLED
+
+HAL_StatusTypeDef RTC_init();
+HAL_StatusTypeDef RTC_set_time_and_date(uint8_t RTChour, uint8_t RTCminute, uint8_t RTCSeconds, uint8_t RTCWeekDay,
+		uint8_t RTCMonth, uint8_t RTCYear, uint8_t RTCDate);
+HAL_StatusTypeDef RTC_get_time(RTC_TimeTypeDef *sTime);
+HAL_StatusTypeDef RTC_get_date(RTC_DateTypeDef *sDate);
+
+#endif /* INC_RTC_API_H_ */

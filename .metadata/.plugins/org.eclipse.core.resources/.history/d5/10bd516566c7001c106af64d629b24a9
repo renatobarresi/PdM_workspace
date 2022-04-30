@@ -1,0 +1,23 @@
+/*
+ * API_uart.h
+ *
+ *  Created on: Apr 2, 2022
+ *      Author: renato
+ */
+
+#ifndef API_INC_API_UART_H_
+#define API_INC_API_UART_H_
+
+#include "main.h"
+
+/*********************User defines*****************/
+#define BAUDRATE 115200	//UART peripheral's baudrate
+#define UARTx USART3	//UART peripheral to use
+#define UART_RX_BUFFER 64
+
+/*************Public functions*********************/
+HAL_StatusTypeDef uartinit();
+void uartsendString(uint8_t * pstring);
+void uartReceiveString(uint8_t * pstring);
+
+#endif /* API_INC_API_UART_H_ */
